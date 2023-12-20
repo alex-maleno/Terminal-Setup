@@ -1,0 +1,22 @@
+set expandtab
+set shiftwidth=4
+set tabstop=4
+filetype indent on
+
+set nu
+syntax on
+
+" Open to last place you edited
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" set up \t to open terminal while in vim
+autocmd TerminalWinOpen *
+  \ if &buftype ==# 'terminal' | 
+  \   resize 10 | 
+  \   setlocal termwinsize=0x140 | 
+  \   setlocal nowrap |
+  \ endif
+
+nnoremap <leader>t :belowright terminal<CR>
