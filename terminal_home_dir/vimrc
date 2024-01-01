@@ -1,3 +1,11 @@
+
+" Uncomment if you have installed dracula colorscheme following instructions from:
+"   https://draculatheme.com/vim
+"packadd! dracula
+"syntax enable
+"colorscheme dracula
+
+
 set expandtab
 set shiftwidth=4
 set tabstop=4
