@@ -1,0 +1,3 @@
+[submodule "terminal_home_dir/vim/pack/themes/start/dracula"]
+	path = terminal_home_dir/vim/pack/themes/start/dracula
+	url = https://github.com/dracula/vim.git
