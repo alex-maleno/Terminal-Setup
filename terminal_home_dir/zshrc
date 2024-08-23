@@ -1,0 +1,54 @@
+bashrc() {
+	#pushd .
+	source ~/.bashrc
+	#popd
+}
+
+cheat() {
+	curl cheat.sh/$(echo $@ | tr ' ' '+')
+}
+# Function to get the current git branch and status
+git_prompt_info() {
+  branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+  if [ -n "$branch" ]; then
+    echo "($branch)"
+  fi
+}
+
+precmd() {
+PROMPT="${GREEN}%n@%m ${BLUE}%~ ${YELLOW}$(git_prompt_info)${RESET} "
+}
+
+
+export CLICOLOR=1
+alias ls='ls -G'
+alias ll='ls -lG'
+alias python=python3
+
+# bc i cant type
+alias gt="git"
+alias gti="git"
+alias igt="git"
+alias itg="git"
+alias l='ls'
+alias s='ls'
+alias sl='ls'
+
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# Define colors
+autoload -U colors && colors
+RED="%F{1}"
+GREEN="%F{2}"
+YELLOW="%F{3}"
+BLUE="%F{4}"
+MAGENTA="%F{5}"
+CYAN="%F{6}"
+WHITE="%F{7}"
+RESET="%f"
+#
+# Custom prompt
+PROMPT="${GREEN}%n@%m ${BLUE}%~ ${YELLOW}$(git_prompt_info)${RESET} "
