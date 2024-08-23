@@ -1,0 +1,26 @@
+bashrc() {
+	#pushd .
+	source ~/.bashrc
+	#popd
+}
+
+cheat() {
+	curl cheat.sh/$(echo $@ | tr ' ' '+')
+}
+
+export CLICOLOR=1
+alias ls='ls -G'
+alias ll='ls -lG'
+
+# bc i cant type
+alias gt="git"
+alias gti="git"
+alias igt="git"
+alias itg="git"
+
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+
