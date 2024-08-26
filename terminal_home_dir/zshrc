@@ -15,6 +15,8 @@ git_prompt_info() {
   fi
 }
 
+# this function runs after each command run, to rerender the 
+# git tag
 precmd() {
 PROMPT="${GREEN}%n@%m ${BLUE}%~ ${YELLOW}$(git_prompt_info)${RESET} "
 }
@@ -23,6 +25,9 @@ PROMPT="${GREEN}%n@%m ${BLUE}%~ ${YELLOW}$(git_prompt_info)${RESET} "
 export CLICOLOR=1
 alias ls='ls -G'
 alias ll='ls -lG'
+
+#python aliasing
+alias pip=pip3
 alias python=python3
 
 # bc i cant type
