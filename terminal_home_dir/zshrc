@@ -15,10 +15,16 @@ git_prompt_info() {
   fi
 }
 
+conda_prompt() {
+  if [ -n "$CONDA_DEFAULT_ENV" ]; then
+    echo "($CONDA_DEFAULT_ENV) "
+  fi
+}
+
 # this function runs after each command run, to rerender the 
 # git tag
 precmd() {
-PROMPT="${GREEN}%n@%m ${BLUE}%~ ${YELLOW}$(git_prompt_info)${RESET} "
+PROMPT="$(conda_prompt)${GREEN}%n@%m ${BLUE}%~ ${YELLOW}$(git_prompt_info)${RESET} "
 }
 
 
@@ -56,4 +62,4 @@ WHITE="%F{7}"
 RESET="%f"
 #
 # Custom prompt
-PROMPT="${GREEN}%n@%m ${BLUE}%~ ${YELLOW}$(git_prompt_info)${RESET} "
+PROMPT="$(conda_prompt)${GREEN}%n@%m ${BLUE}%~ ${YELLOW}$(git_prompt_info)${RESET} "
